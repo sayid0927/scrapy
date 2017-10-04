@@ -66,8 +66,8 @@ ITEM_PIPELINES = {
     'myproject.pipelines.MyprojectPipeline': 300,
 }
 
-#LOG_FILE ='dg.log'
-#LOG_LEVEL ='DEBUG'
+LOG_FILE ='dg.log'
+LOG_LEVEL ='DEBUG'
 
 
 

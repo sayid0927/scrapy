@@ -14,16 +14,6 @@ class SunSpider(CrawlSpider):
         Rule(LinkExtractor(allow=r'page=\d+')),
         Rule(LinkExtractor(allow=r'htm_data/\d+/\d+/\d+.html'),callback ='parse_item'),
     )
-    
-#    def deal_links(self,links):
-#        if len(links)>0:
-#           for link in links: 
-#               print(link.url)
-#        else:
-#           return None
-          
-
-
     def parse_item(self, response):
         print ('respone.utl===>>>'+response.url)
         item = MyprojectItem()
@@ -31,7 +21,7 @@ class SunSpider(CrawlSpider):
         print('item>> title===>>>'+item['title'])
         content_list = response.xpath('//div[@class="tpc_content do_not_catch"]/text()|//span[@class="f16"]').extract()
         content= ''.join(content_list)
-        item['content']=content.replace("<p>","").replace("</p>", "").replace("<br>", "\n").replace("1024","").replace('<span class="f16"><span style="display:inline-block;color:green">',"")
+        item['content']=content.replace('<p>',"").replace('</p>', "").replace('<br>', "\n").replace("1024","").replace('<span class="f16"><span style="display:inline-block;color:green">',"")
 #        item['content']=content
         item['url'] = response.url
         yield item

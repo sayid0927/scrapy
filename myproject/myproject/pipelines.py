@@ -11,8 +11,11 @@ class MyprojectPipeline(object):
       self.nun =0
 
     def process_item(self, item, spider):
-      filename = open(str(self.nun)+'.text','w')
-      content = item['content'].encode('utf-8')
+      title = item['title'].encode("utf-8")
+      title = title.rstrip()
+      filename = open(r'/home/ubuntu/project/xs/xs/'+title + '.text','w')
+      print ('filename===>>>'+str(filename))  
+      content= item['content'].encode("utf-8")
       filename.write(content)
       self.nun=self.nun+1
       return item
