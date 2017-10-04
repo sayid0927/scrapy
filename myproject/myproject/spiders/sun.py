@@ -29,9 +29,10 @@ class SunSpider(CrawlSpider):
         item = MyprojectItem()
         item['title'] = response.xpath('//tr[@class="tr1 do_not_catch"]//h4/text()').extract()[0]
         print('item>> title===>>>'+item['title'])
-        content_list = response.xpath('//div[@class="tpc_content do_not_catch"]/text()').extract()
-        item['content']= ''.join(content_list)
-        print('item>>content===>>>'+item['content'])
+        content_list = response.xpath('//div[@class="tpc_content do_not_catch"]/text()|//span[@class="f16"]').extract()
+        content= ''.join(content_list)
+        item['content']=content.replace("<p>","").replace("</p>", "").replace("<br>", "\n").replace("1024","").replace('<span class="f16"><span style="display:inline-block;color:green">',"")
+#        item['content']=content
         item['url'] = response.url
         yield item
 
