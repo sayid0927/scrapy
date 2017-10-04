@@ -50,12 +50,9 @@ DEFAULT_REQUEST_HEADERS = {
 
 # Enable or disable downloader middlewares
 # See http://scrapy.readthedocs.org/en/latest/topics/downloader-middleware.html
-DOWNLOADER_MIDDLEWARES = {
-    # 'myproject.middlewares.MyCustomDownloaderMiddleware': 543,
-      'scrapy.contrib.downloadermiddleware.httpproxy.HttpProxyMiddleware' : None,
-      'myproject.middlewares.ProxyMiddleWare': 125,
-      'scrapy.downloadermiddlewares.defaultheaders.DefaultHeadersMiddleware': None
-}
+#DOWNLOADER_MIDDLEWARES = {
+#    'myproject.middlewares.MyCustomDownloaderMiddleware': 543,
+#}
 
 # Enable or disable extensions
 # See http://scrapy.readthedocs.org/en/latest/topics/extensions.html
