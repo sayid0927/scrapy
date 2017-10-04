@@ -24,7 +24,7 @@ NEWSPIDER_MODULE = 'myproject.spiders'
 # Configure a delay for requests for the same website (default: 0)
 # See http://scrapy.readthedocs.org/en/latest/topics/settings.html#download-delay
 # See also autothrottle settings and docs
-#DOWNLOAD_DELAY=3
+DOWNLOAD_DELAY=3
 # The download delay setting will honor only one of:
 #CONCURRENT_REQUESTS_PER_DOMAIN=16
 #CONCURRENT_REQUESTS_PER_IP=16
@@ -50,9 +50,12 @@ DEFAULT_REQUEST_HEADERS = {
 
 # Enable or disable downloader middlewares
 # See http://scrapy.readthedocs.org/en/latest/topics/downloader-middleware.html
-#DOWNLOADER_MIDDLEWARES = {
-#    'myproject.middlewares.MyCustomDownloaderMiddleware': 543,
-#}
+DOWNLOADER_MIDDLEWARES = {
+    # 'myproject.middlewares.MyCustomDownloaderMiddleware': 543,
+      'scrapy.contrib.downloadermiddleware.httpproxy.HttpProxyMiddleware' : None,
+      'myproject.middlewares.ProxyMiddleWare': 125,
+      'scrapy.downloadermiddlewares.defaultheaders.DefaultHeadersMiddleware': None
+}
 
 # Enable or disable extensions
 # See http://scrapy.readthedocs.org/en/latest/topics/extensions.html
