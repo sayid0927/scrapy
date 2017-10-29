@@ -10,8 +10,7 @@ import scrapy
 
 class MyprojectItem(scrapy.Item):
     # define the fields for your item here like:
-     title = scrapy.Field()
-     content = scrapy.Field()
-     url = scrapy.Field()
-     number = scrapy.Field()
-    
+    title = scrapy.Field()
+    content = scrapy.Field()
+    url = scrapy.Field()
+    number = scrapy.Field()

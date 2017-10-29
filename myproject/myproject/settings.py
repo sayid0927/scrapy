@@ -66,6 +66,12 @@ ITEM_PIPELINES = {
     'myproject.pipelines.MyprojectPipeline': 300,
 }
 
+MYSQL_HOST = '127.0.0.1'
+MYSQL_DBNAME = 'test'
+MYSQL_USER = 'root'
+MYSQL_PASSWD = '123'
+MYSQL_PORT = 3306
+
 LOG_FILE ='dg.log'
 LOG_LEVEL ='DEBUG'
 
