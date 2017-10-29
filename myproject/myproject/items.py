@@ -10,7 +10,10 @@ import scrapy
 
 class MyprojectItem(scrapy.Item):
     # define the fields for your item here like:
-    title = scrapy.Field()
-    content = scrapy.Field()
-    url = scrapy.Field()
-    number = scrapy.Field()
+    manHuna_Book_Name = scrapy.Field()
+    manHuna_Book_Type = scrapy.Field()
+    manHuna_Book_Auth = scrapy.Field()
+    manHuna_Book_profile = scrapy.Field()
+    manHuna_Book_title = scrapy.Field()
+    manHuna_Book_img_url = scrapy.Field()
+    manHuna_Book_cover_url = scrapy.Field()

@@ -50,9 +50,9 @@ DEFAULT_REQUEST_HEADERS = {
 
 # Enable or disable downloader middlewares
 # See http://scrapy.readthedocs.org/en/latest/topics/downloader-middleware.html
-#DOWNLOADER_MIDDLEWARES = {
-#    'myproject.middlewares.MyCustomDownloaderMiddleware': 543,
-#}
+DOWNLOADER_MIDDLEWARES = {
+   'myproject.middlewares.RandomUserAgent': 100,
+}
 
 # Enable or disable extensions
 # See http://scrapy.readthedocs.org/en/latest/topics/extensions.html
@@ -66,16 +66,21 @@ ITEM_PIPELINES = {
     'myproject.pipelines.MyprojectPipeline': 300,
 }
 
-MYSQL_HOST = '127.0.0.1'
-MYSQL_DBNAME = 'test'
-MYSQL_USER = 'root'
-MYSQL_PASSWD = '123'
-MYSQL_PORT = 3306
-
-LOG_FILE ='dg.log'
-LOG_LEVEL ='DEBUG'
-
-
+USER_AGENTS = [
+    'Mozilla/4.0 (compatible; MSIE 8.0; Windows NT 6.0)',
+    'Mozilla/4.0 (compatible; MSIE 7.0; Windows NT 5.2)',
+    'Opera/9.27 (Windows NT 5.2; U; zh-cn)',
+    'Opera/8.0 (Macintosh; PPC Mac OS X; U; en)',
+    'Mozilla/4.0(compatible;MSIE7.0;WindowsNT5.1;Maxthon2.0)',
+    'Mozilla/5.0(Linux;U;Android2.3.7;en-us;NexusOneBuild/FRF91)AppleWebKit/533.1(KHTML,likeGecko)Version/4.0MobileSafari/533.1',
+    'Opera/9.80(Android2.3.4;Linux;OperaMobi/build-1107180945;U;en-GB)Presto/2.8.149Version/11.10',
+    'Mozilla/5.0(compatible;MSIE9.0;WindowsPhoneOS7.5;Trident/5.0;IEMobile/9.0;HTC;Titan)',
+    'Mozilla/4.0(compatible;MSIE7.0;WindowsNT5.1;TencentTraveler4.0)',
+    'Mozilla/4.0(compatible;MSIE7.0;WindowsNT5.1;360SE)',
+    'Mozilla/5.0 (Macintosh; PPC Mac OS X; U; en) Opera 8.0',
+    'Mozilla/5.0 (Linux; U; Android 4.0.3; zh-cn; M032 Build/IML74K) AppleWebKit/534.30 (KHTML, like Gecko) Version/4.0 Mobile Safari/534.30',
+    'Mozilla/5.0 (Windows; U; Windows NT 5.2) AppleWebKit/525.13 (KHTML, like Gecko) Chrome/0.2.149.27 Safari/525.13'
+]
 
 
 # Enable and configure the AutoThrottle extension (disabled by default)
