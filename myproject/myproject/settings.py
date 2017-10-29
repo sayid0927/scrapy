@@ -14,6 +14,15 @@ BOT_NAME = 'myproject'
 SPIDER_MODULES = ['myproject.spiders']
 NEWSPIDER_MODULE = 'myproject.spiders'
 
+DUPEFILTER_CLASS = "scrapy_redis.dupefilter.RFPDupeFilter"
+
+SCHEDULER = "scrapy_redis.scheduler.Scheduler"
+
+SCHEDULER_PERSIST = True
+
+REDIS_HOST = '52.196.75.220'
+REDIS_PORT = 6379
+
 
 # Crawl responsibly by identifying yourself (and your website) on the user-agent
 #USER_AGENT = 'myproject (+http://www.yourdomain.com)'
@@ -63,7 +72,8 @@ DEFAULT_REQUEST_HEADERS = {
 # Configure item pipelines
 # See http://scrapy.readthedocs.org/en/latest/topics/item-pipeline.html
 ITEM_PIPELINES = {
-    'myproject.pipelines.MyprojectPipeline': 300,
+    'myproject.pipelines.MyfendoPipeline': 300,
+    'scrapy_redis.pipelines.RedisPipeline': 400,
 }
 
 USER_AGENTS = [

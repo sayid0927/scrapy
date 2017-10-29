@@ -5,7 +5,10 @@ import urllib2
 import scrapy
 from bs4 import BeautifulSoup
 from scrapy.linkextractors import LinkExtractor
-from scrapy.spiders import CrawlSpider, Rule
+# from scrapy.spiders import CrawlSpider, Rule
+
+from scrapy.spider import Rule
+from scrapy_redis.spiders import RedisCrawlSpider
 
 from myproject.items import MyprojectItem
 
@@ -14,13 +17,31 @@ from downloader import Downloader
 from myproject.spiders.hh import download
 
 
-class SunSpider(CrawlSpider):
+# class SunSpider(CrawlSpider):
+class SunSpider(RedisCrawlSpider):
     name = 'sun'
     home_url='http://comic.sfacg.com'
     allowed_domains = ['comic.sfacg.com']
-    start_urls = ['http://comic.sfacg.com/Catalog/?tid=2']
+    # start_urls = ['http://comic.sfacg.com/Catalog/?tid=2']
+
+    redis_key = 'sunspider:start_urls'
+
+
     URL = 'http://comic.sfacg.com'
     picture = 'http://coldpic.sfacg.com'
+
+    # page_links = LinkExtractor(allow=(r"Catalog/?tid=2"))
+    # rules = (Rule(page_links, callback="parse"),)
+
+
+
+    def __int__(self, *args, **kwargs):
+        domain = kwargs.pop('domain', '')
+        self.allowed_domains = filter(None, domain.split(','))
+        super(SunSpider, self).__int__(*args, **kwargs)
+
+
+
 
     def parse(self, response):
 
